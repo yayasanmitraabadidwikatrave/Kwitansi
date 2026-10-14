@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice — Mitra Abadi Dwika Trave</title>
+<style>
+  :root { --blue:#1769c2; --blue-dark:#104c91; --ink:#202938; --muted:#64748b; --line:#d7dee8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef3f9; color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
+  .topbar { height:12px; background:linear-gradient(90deg,var(--blue-dark),#2588ec); }
+  .app { max-width:900px; margin:28px auto; padding:0 16px 32px; }
+  .toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; }
+  .toolbar p { margin:0; color:var(--muted); font-size:13px; }
+  button { border:0; border-radius:8px; padding:11px 17px; cursor:pointer; font-weight:700; font-size:14px; }
+  .print-btn { background:var(--blue); color:white; box-shadow:0 3px 8px #1769c233; }
+  .print-btn:hover { background:var(--blue-dark); }
+  .paper { background:white; border-radius:12px; overflow:hidden; box-shadow:0 12px 35px #203a5a18; }
+  .invoice-head { background:var(--blue); color:white; padding:28px 34px 24px; }
+  .company { margin:0; font-size:clamp(20px,4vw,27px); font-weight:800; letter-spacing:.3px; }
+  .rule { border:0; border-top:1px solid #ffffffa8; margin:15px 0 18px; }
+  .invoice-title { margin:0; font-size:22px; letter-spacing:2px; font-weight:800; }
+  .invoice-body { padding:30px 34px 36px; }
+  .field { margin-bottom:19px; }
+  label { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.7px; font-weight:700; color:#526174; margin-bottom:7px; }
+  input, textarea, select { width:100%; border:1px solid var(--line); border-radius:7px; padding:11px 12px; font:inherit; color:var(--ink); background:#fff; outline:none; }
+  input:focus, textarea:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px #1769c21a; }
+  textarea { min-height:78px; resize:vertical; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .section-line { border:0; border-top:1px solid var(--line); margin:25px 0; }
+  .details-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+  .details-head h2 { font-size:15px; margin:0; }
+  .add-btn { background:#e8f2ff; color:var(--blue-dark); padding:8px 12px; }
+  .note-row { display:flex; gap:8px; align-items:flex-start; margin-bottom:9px; }
+  .note-row input { flex:1; }
+  .remove-btn { background:#fff0f0; color:#b42318; padding:10px 12px; }
+  .legal { margin-top:27px; border:1px solid #f0d28b; border-left:4px solid #e4a11b; background:#fffaf0; padding:14px 16px; border-radius:6px; font-size:12px; line-height:1.6; }
+  .legal strong { display:block; margin-bottom:4px; }
+  .signature { display:flex; justify-content:flex-end; margin-top:34px; }
+  .sign-box { width:220px; text-align:center; font-size:13px; }
+  .sign-title { font-weight:700; }
+  .sign-space { height:82px; }
+  .sign-line { border-top:1px solid #253246; margin-bottom:7px; }
+  .sign-name input { text-align:center; border:0; border-bottom:1px solid var(--line); border-radius:0; padding:7px 4px; font-weight:700; }
+  .footer { margin-top:28px; border-top:1px solid var(--line); padding-top:13px; color:var(--muted); font-size:11px; text-align:center; }
+  @media(max-width:600px) {
+    .app { margin:16px auto; padding:0 10px 24px; }
+    .invoice-head { padding:23px 20px; }
+    .invoice-body { padding:24px 20px 28px; }
+    .grid { grid-template-columns:1fr; gap:0; }
+    .toolbar { align-items:flex-start; flex-direction:column; }
+    .print-btn { width:100%; }
+  }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:white; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .topbar, .toolbar, .add-btn, .remove-btn { display:none !important; }
+    .app { max-width:none; margin:0; padding:0; }
+    .paper { border-radius:0; box-shadow:none; overflow:visible; }
+    .invoice-head { padding:22px 28px 20px; }
+    .invoice-body { padding:25px 28px; }
+    input, textarea, select { border:0; border-bottom:1px solid #c8d0dc; border-radius:0; padding:6px 2px; box-shadow:none !important; background:transparent; appearance:none; }
+    textarea { min-height:48px; resize:none; }
+    label { margin-bottom:4px; }
+    .field { margin-bottom:13px; }
+    .note-row { margin-bottom:5px; }
+    .legal { break-inside:avoid; }
+    .signature { break-inside:avoid; margin-top:26px; }
+    .sign-name input { border-bottom:1px solid #253246; }
+    .footer { margin-top:18px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<main class="app">
+  <div class="toolbar">
+    <p>Isi data invoice, lalu klik <b>Cetak Invoice</b> untuk melihat pratinjau dan mencetaknya.</p>
+    <button class="print-btn" type="button" onclick="window.print()">Cetak Invoice</button>
+  </div>
+  <article class="paper">
+    <header class="invoice-head">
+      <h1 class="company">MITRA ABADI DWIKA TRAVE</h1>
+      <hr class="rule">
+      <h2 class="invoice-title">INVOICE</h2>
+    </header>
+    <section class="invoice-body">
+      <div class="field">
+        <label for="nama">Nama</label>
+        <input id="nama" type="text" placeholder="Masukkan nama">
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label for="tanggal">Tanggal</label>
+          <input id="tanggal" type="date">
+        </div>
+        <div class="field">
+          <label for="keperluan">Keperluan</label>
+          <input id="keperluan" type="text" placeholder="Masukkan keperluan">
+        </div>
+      </div>
+      <hr class="section-line">
+      <div class="details-head">
+        <h2>Keterangan</h2>
+        <button class="add-btn" type="button" onclick="addNote()">+ Tambah keterangan</button>
+      </div>
+      <div id="notes">
+        <div class="note-row">
+          <input type="text" aria-label="Keterangan 1" placeholder="Masukkan keterangan">
+          <button class="remove-btn" type="button" onclick="removeNote(this)" title="Hapus keterangan" aria-label="Hapus keterangan">×</button>
+        </div>
+      </div>
+      <hr class="section-line">
+      <div class="field">
+        <label for="pembayaran">Pembayaran untuk</label>
+        <input id="pembayaran" type="text" placeholder="Tujuan pembayaran">
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label for="status">Lunas / DP</label>
+          <select id="status">
+            <option value="">Pilih status pembayaran</option>
+            <option>Lunas</option>
+            <option>DP (Uang Muka)</option>
+            <option>Belum Lunas</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="jumlah">Jumlah (Rp)</label>
+          <input id="jumlah" type="number" min="0" step="1000" placeholder="Contoh: 350000">
+        </div>
+      </div>
+      <div class="legal">
+        <strong>KETERANGAN PENTING</strong>
+        PEMBAYARAN HANYA DILAKUKAN ATAS NAMA YAYASAN MITRA MANDIRI DWIKA TRAVE. Selain itu, pembayaran dianggap tidak sah. Segala bentuk komplain harus dilakukan paling lambat 1 × 24 jam.
+      </div>
+      <div class="signature">
+        <div class="sign-box">
+          <div class="sign-title">Admin</div>
+          <div class="sign-space"></div>
+          <div class="sign-line"></div>
+          <div class="sign-name">
+            <input type="text" id="admin" placeholder="Nama admin" aria-label="Nama admin">
+          </div>
+        </div>
+      </div>
+      <div class="footer">MITRA ABADI DWIKA TRAVE</div>
+    </section>
+  </article>
+</main>
+<script>
+function addNote() {
+  const container = document.getElementById('notes');
+  const row = document.createElement('div');
+  row.className = 'note-row';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = 'Masukkan keterangan';
+  input.setAttribute('aria-label', 'Keterangan tambahan');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'remove-btn';
+  button.title = 'Hapus keterangan';
+  button.setAttribute('aria-label', 'Hapus keterangan');
+  button.textContent = '×';
+  button.onclick = function() { removeNote(button); };
+  row.append(input, button);
+  container.appendChild(row);
+  input.focus();
+}
+function removeNote(button) {
+  const container = document.getElementById('notes');
+  if (container.children.length > 1) button.closest('.note-row').remove();
+  else {
+    const input = button.closest('.note-row').querySelector('input');
+    input.value = '';
+    input.focus();
+  }
+}
+document.getElementById('tanggal').valueAsDate = new Date();
+</script>
+</body>
+</html>
