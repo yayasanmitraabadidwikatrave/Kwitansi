@@ -3,181 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invoice — Mitra Abadi Dwika Trave</title>
+<meta name="theme-color" content="#252a31">
+<title>MEMBER MITRA ABADI DWIKA TRAVE</title>
 <style>
-  :root { --blue:#1769c2; --blue-dark:#104c91; --ink:#202938; --muted:#64748b; --line:#d7dee8; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:#eef3f9; color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
-  .topbar { height:12px; background:linear-gradient(90deg,var(--blue-dark),#2588ec); }
-  .app { max-width:900px; margin:28px auto; padding:0 16px 32px; }
-  .toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; }
-  .toolbar p { margin:0; color:var(--muted); font-size:13px; }
-  button { border:0; border-radius:8px; padding:11px 17px; cursor:pointer; font-weight:700; font-size:14px; }
-  .print-btn { background:var(--blue); color:white; box-shadow:0 3px 8px #1769c233; }
-  .print-btn:hover { background:var(--blue-dark); }
-  .paper { background:white; border-radius:12px; overflow:hidden; box-shadow:0 12px 35px #203a5a18; }
-  .invoice-head { background:var(--blue); color:white; padding:28px 34px 24px; }
-  .company { margin:0; font-size:clamp(20px,4vw,27px); font-weight:800; letter-spacing:.3px; }
-  .rule { border:0; border-top:1px solid #ffffffa8; margin:15px 0 18px; }
-  .invoice-title { margin:0; font-size:22px; letter-spacing:2px; font-weight:800; }
-  .invoice-body { padding:30px 34px 36px; }
-  .field { margin-bottom:19px; }
-  label { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.7px; font-weight:700; color:#526174; margin-bottom:7px; }
-  input, textarea, select { width:100%; border:1px solid var(--line); border-radius:7px; padding:11px 12px; font:inherit; color:var(--ink); background:#fff; outline:none; }
-  input:focus, textarea:focus, select:focus { border-color:var(--blue); box-shadow:0 0 0 3px #1769c21a; }
-  textarea { min-height:78px; resize:vertical; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  .section-line { border:0; border-top:1px solid var(--line); margin:25px 0; }
-  .details-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
-  .details-head h2 { font-size:15px; margin:0; }
-  .add-btn { background:#e8f2ff; color:var(--blue-dark); padding:8px 12px; }
-  .note-row { display:flex; gap:8px; align-items:flex-start; margin-bottom:9px; }
-  .note-row input { flex:1; }
-  .remove-btn { background:#fff0f0; color:#b42318; padding:10px 12px; }
-  .legal { margin-top:27px; border:1px solid #f0d28b; border-left:4px solid #e4a11b; background:#fffaf0; padding:14px 16px; border-radius:6px; font-size:12px; line-height:1.6; }
-  .legal strong { display:block; margin-bottom:4px; }
-  .signature { display:flex; justify-content:flex-end; margin-top:34px; }
-  .sign-box { width:220px; text-align:center; font-size:13px; }
-  .sign-title { font-weight:700; }
-  .sign-space { height:82px; }
-  .sign-line { border-top:1px solid #253246; margin-bottom:7px; }
-  .sign-name input { text-align:center; border:0; border-bottom:1px solid var(--line); border-radius:0; padding:7px 4px; font-weight:700; }
-  .footer { margin-top:28px; border-top:1px solid var(--line); padding-top:13px; color:var(--muted); font-size:11px; text-align:center; }
-  @media(max-width:600px) {
-    .app { margin:16px auto; padding:0 10px 24px; }
-    .invoice-head { padding:23px 20px; }
-    .invoice-body { padding:24px 20px 28px; }
-    .grid { grid-template-columns:1fr; gap:0; }
-    .toolbar { align-items:flex-start; flex-direction:column; }
-    .print-btn { width:100%; }
-  }
-  @media print {
-    @page { size:A4; margin:12mm; }
-    body { background:white; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .topbar, .toolbar, .add-btn, .remove-btn { display:none !important; }
-    .app { max-width:none; margin:0; padding:0; }
-    .paper { border-radius:0; box-shadow:none; overflow:visible; }
-    .invoice-head { padding:22px 28px 20px; }
-    .invoice-body { padding:25px 28px; }
-    input, textarea, select { border:0; border-bottom:1px solid #c8d0dc; border-radius:0; padding:6px 2px; box-shadow:none !important; background:transparent; appearance:none; }
-    textarea { min-height:48px; resize:none; }
-    label { margin-bottom:4px; }
-    .field { margin-bottom:13px; }
-    .note-row { margin-bottom:5px; }
-    .legal { break-inside:avoid; }
-    .signature { break-inside:avoid; margin-top:26px; }
-    .sign-name input { border-bottom:1px solid #253246; }
-    .footer { margin-top:18px; }
-  }
+:root{--bg:#f2f4f7;--ink:#222831;--muted:#697386;--red:#d62839;--dark:#252a31;--line:#e5e8ee;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,input,textarea{font:inherit}.hidden{display:none!important}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(140deg,#222831,#3b424c)}
+.login-card{width:min(100%,410px);background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 70px #0004}
+.brand-mark{width:58px;height:58px;border-radius:17px;background:var(--red);color:white;display:grid;place-items:center;font-weight:900;font-size:22px;margin-bottom:20px}
+h1,h2,h3,p{margin-top:0}.login-card h1{font-size:25px;margin-bottom:8px}.sub{color:var(--muted);font-size:14px;line-height:1.55}
+label{display:block;font-size:13px;font-weight:700;margin:17px 0 8px}
+input,textarea{width:100%;border:1px solid #d9dee7;border-radius:11px;padding:13px;background:#fff;color:var(--ink);outline:none}
+input:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px #d628391c}
+.btn{border:0;border-radius:11px;padding:12px 16px;font-weight:750;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--red);color:white}.btn-primary:hover{background:#b91e2d}.btn-dark{background:var(--dark);color:white}.btn-light{background:#f0f2f5;color:var(--ink)}
+.btn:active{transform:scale(.99)}.full{width:100%;margin-top:20px}.error{color:#b91e2d;font-size:13px;margin-top:12px}
+.notice{font-size:11px;color:#78808d;line-height:1.5;margin:20px 0 0}
+.topbar{background:var(--dark);color:#fff;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.top-brand{display:flex;align-items:center;gap:12px}.mini-mark{width:42px;height:42px;border-radius:12px;background:var(--red);display:grid;place-items:center;font-weight:900}
+.topbar h1{font-size:17px;margin:0}.topbar p{font-size:12px;color:#c6cbd3;margin:4px 0 0}
+.container{max-width:1100px;margin:26px auto;padding:0 18px 48px}
+.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}.welcome h2{font-size:25px;margin-bottom:6px}.welcome p{color:var(--muted);margin:0;font-size:14px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#fff0f1;color:#b91e2d;border:1px solid #ffd4d8;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:750}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 5px 18px #1b24300a}
+.card h3{font-size:17px;margin-bottom:18px}.profile-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.avatar{width:58px;height:58px;border-radius:16px;background:#fbe6e8;color:var(--red);display:grid;place-items:center;font-size:23px;font-weight:900}
+.profile-head h3{margin:0 0 5px}.profile-head p{margin:0;color:var(--muted);font-size:13px}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}.detail{min-width:0}.detail.wide{grid-column:1/-1}.detail span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}.detail strong{font-size:14px;line-height:1.5;overflow-wrap:anywhere}.phone{color:#b91e2d;text-decoration:none}
+.experience{padding:13px 14px;background:#f7f8fa;border-radius:11px;margin-top:10px;font-size:13px;line-height:1.6}
+.status-list{display:grid;gap:10px}.status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 13px;border:1px solid var(--line);border-radius:12px}
+.status-row span:first-child{font-size:13px;font-weight:700}.status{font-size:12px;font-weight:800;white-space:nowrap}.done{color:#16804a}.progress{color:#c62839}.pending{color:#858b96}
+
+
+.footer{text-align:center;color:#828a97;font-size:11px;margin-top:24px;line-height:1.5}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.container{margin-top:20px}.welcome h2{font-size:22px}.topbar{padding:14px 16px}.card{padding:18px}.details{gap:15px 12px}}
+@media(max-width:420px){.details{grid-template-columns:1fr}.detail.wide{grid-column:auto}.welcome{flex-direction:column}.login-card{padding:24px}}
 </style>
 </head>
 <body>
-<div class="topbar"></div>
-<main class="app">
-  <div class="toolbar">
-    <p>Isi data invoice, lalu klik <b>Cetak Invoice</b> untuk melihat pratinjau dan mencetaknya.</p>
-    <button class="print-btn" type="button" onclick="window.print()">Cetak Invoice</button>
+<section id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="brand-mark">OKI</div>
+    <h1>MEMBER MITRA ABADI DWIKA TRAVE</h1>
+    <p class="sub">Silakan masuk untuk melihat informasi member dan mengisi persiapan interview.</p>
+    <form id="loginForm">
+      <label for="username">Username</label><input id="username" name="username" autocomplete="username" placeholder="Masukkan username" required>
+      <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+      <button class="btn btn-primary full" type="submit">Masuk ke Dashboard →</button>
+      <div id="loginError" class="error hidden">Username atau password tidak sesuai.</div>
+    </form>
   </div>
-  <article class="paper">
-    <header class="invoice-head">
-      <h1 class="company">MITRA ABADI DWIKA TRAVE</h1>
-      <hr class="rule">
-      <h2 class="invoice-title">INVOICE</h2>
-    </header>
-    <section class="invoice-body">
-      <div class="field">
-        <label for="nama">Nama</label>
-        <input id="nama" type="text" placeholder="Masukkan nama">
-      </div>
-      <div class="grid">
-        <div class="field">
-          <label for="tanggal">Tanggal</label>
-          <input id="tanggal" type="date">
-        </div>
-        <div class="field">
-          <label for="keperluan">Keperluan</label>
-          <input id="keperluan" type="text" placeholder="Masukkan keperluan">
-        </div>
-      </div>
-      <hr class="section-line">
-      <div class="details-head">
-        <h2>Keterangan</h2>
-        <button class="add-btn" type="button" onclick="addNote()">+ Tambah keterangan</button>
-      </div>
-      <div id="notes">
-        <div class="note-row">
-          <input type="text" aria-label="Keterangan 1" placeholder="Masukkan keterangan">
-          <button class="remove-btn" type="button" onclick="removeNote(this)" title="Hapus keterangan" aria-label="Hapus keterangan">×</button>
-        </div>
-      </div>
-      <hr class="section-line">
-      <div class="field">
-        <label for="pembayaran">Pembayaran untuk</label>
-        <input id="pembayaran" type="text" placeholder="Tujuan pembayaran">
-      </div>
-      <div class="grid">
-        <div class="field">
-          <label for="status">Lunas / DP</label>
-          <select id="status">
-            <option value="">Pilih status pembayaran</option>
-            <option>Lunas</option>
-            <option>DP (Uang Muka)</option>
-            <option>Belum Lunas</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="jumlah">Jumlah (Rp)</label>
-          <input id="jumlah" type="number" min="0" step="1000" placeholder="Contoh: 350000">
-        </div>
-      </div>
-      <div class="legal">
-        <strong>KETERANGAN PENTING</strong>
-        PEMBAYARAN HANYA DILAKUKAN ATAS NAMA YAYASAN MITRA MANDIRI DWIKA TRAVE. Selain itu, pembayaran dianggap tidak sah. Segala bentuk komplain harus dilakukan paling lambat 1 × 24 jam.
-      </div>
-      <div class="signature">
-        <div class="sign-box">
-          <div class="sign-title">Admin</div>
-          <div class="sign-space"></div>
-          <div class="sign-line"></div>
-          <div class="sign-name">
-            <input type="text" id="admin" placeholder="Nama admin" aria-label="Nama admin">
+</section>
+<section id="dashboard" class="hidden">
+  <header class="topbar">
+    <div class="top-brand"><div class="mini-mark">OKI</div><div><h1>MEMBER MITRA ABADI DWIKA TRAVE</h1><p>Dashboard informasi member</p></div></div>
+    <button class="btn btn-light" id="logoutBtn">Keluar</button>
+  </header>
+  <main class="container">
+    <div class="welcome"><div><h2>Halo, Khurniasari 👋</h2><p>Berikut ringkasan data member.</p></div></div>
+    <div class="grid">
+      <div class="card">
+        <div class="profile-head"><div class="avatar">K</div><div><h3>Profil Member</h3><p>Data identitas dan pengalaman kerja</p></div></div>
+        <div class="details">
+          <div class="detail wide"><span>Nama lengkap</span><strong>KHURNIASARI</strong></div>
+          <div class="detail wide"><span>NIK</span><strong>3572036804040002</strong></div>
+          <div class="detail"><span>Nomor HP</span><strong><a class="phone" href="tel:089681019853">089681019853</a></strong></div>
+          <div class="detail"><span>Tempat, tanggal lahir</span><strong>Blitar, 28 April 2004</strong></div>
+          <div class="detail"><span>Berat badan</span><strong>53 kg</strong></div>
+          <div class="detail"><span>Tinggi badan</span><strong>165 cm</strong></div>
+          <div class="detail wide"><span>Pendidikan terakhir</span><strong>SMK Negeri 1 Blitar</strong></div>
+          <div class="detail wide"><span>Pengalaman kerja</span>
+            <div class="experience"><strong>PT. Yuppy Indo Jelly Gum</strong><br>Helper Operator Extruder</div>
+            <div class="experience"><strong>PT. Kampung Coklat Blitar</strong><br>Operator Packing Coklat</div>
           </div>
         </div>
       </div>
-      <div class="footer">MITRA ABADI DWIKA TRAVE</div>
-    </section>
-  </article>
-</main>
+      <div class="card">
+        <h3>Status Member</h3>
+        <div class="detail" style="margin-bottom:16px"><span>Perusahaan tujuan</span><strong>PT Hitachi Astemo</strong></div>
+        <div class="detail" style="margin-bottom:18px"><span>Posisi</span><strong>Operator Produksi</strong></div>
+        <div class="status-list">
+          <div class="status-row"><span>Member</span><span class="status done">✓ Selesai</span></div>
+          <div class="status-row"><span>Tes</span><span class="status done">✓ Selesai</span></div>
+          <div class="status-row"><span>MCU</span><span class="status done">✓ Selesai</span></div>
+          <div class="status-row"><span>Interview</span><span class="status done">✅</span></div>
+          <div class="status-row"><span>Training</span><span class="status pending">✕ Belum</span></div>
+          <div class="status-row"><span>TTK</span><span class="status pending">✕ Belum</span></div>
+        </div>
+        <div class="interview-action" style="display:block;margin-top:16px;padding:14px;background:#fff8e8;border:1px solid #f2dfad;border-radius:13px">
+          <strong>SEGERA LAKUKAN PEMBAYARAN ADMINISTRASI UNTUK MENDAPATKAN JADWAL TTK.</strong>
+          <p style="font-size:12px;line-height:1.6;color:#6f7480;margin:8px 0 12px">Klik “Lihat Jadwal TTK” untuk melihat pemberitahuan.</p>
+          <button class="btn btn-primary" id="scheduleBtn" type="button">Lihat Jadwal TTK</button>
+          <p id="scheduleNotice" class="hidden" role="status" style="margin-top:12px;padding:12px;background:#fff0f1;border-radius:10px;color:#b91e2d;font-weight:700;line-height:1.6">SEGERA LAKUKAN PEMBAYARAN UNTUK MENDAPAT JADWAL. WAKTU TERBATAS, BISA TERJADI GAGAL.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Semua info selalu update dalam yayasan.</div>
+  </main>
+</section>
 <script>
-function addNote() {
-  const container = document.getElementById('notes');
-  const row = document.createElement('div');
-  row.className = 'note-row';
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Masukkan keterangan';
-  input.setAttribute('aria-label', 'Keterangan tambahan');
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'remove-btn';
-  button.title = 'Hapus keterangan';
-  button.setAttribute('aria-label', 'Hapus keterangan');
-  button.textContent = '×';
-  button.onclick = function() { removeNote(button); };
-  row.append(input, button);
-  container.appendChild(row);
-  input.focus();
-}
-function removeNote(button) {
-  const container = document.getElementById('notes');
-  if (container.children.length > 1) button.closest('.note-row').remove();
-  else {
-    const input = button.closest('.note-row').querySelector('input');
-    input.value = '';
-    input.focus();
-  }
-}
-document.getElementById('tanggal').valueAsDate = new Date();
+const USERNAME='khurniasari', PASSWORD='member94';
+const loginScreen=document.getElementById('loginScreen'), dashboard=document.getElementById('dashboard');
+document.getElementById('loginForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const u=document.getElementById('username').value.trim().toLowerCase();
+ const p=document.getElementById('password').value;
+ if(u===USERNAME && p===PASSWORD){loginScreen.classList.add('hidden');dashboard.classList.remove('hidden');document.getElementById('loginError').classList.add('hidden')}
+ else document.getElementById('loginError').classList.remove('hidden');
+});
+document.getElementById('logoutBtn').addEventListener('click',()=>{dashboard.classList.add('hidden');loginScreen.classList.remove('hidden');document.getElementById('password').value='';window.scrollTo(0,0)});
+document.getElementById('scheduleBtn').addEventListener('click',()=>{
+  document.getElementById('scheduleNotice').classList.remove('hidden');
+});
 </script>
 </body>
 </html>
